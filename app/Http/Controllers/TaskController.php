@@ -27,7 +27,7 @@ class TaskController extends Controller
 
     public function edit($id)
     {
-        //no models
+        //bukan best practices
         //ambil table task kemudian cari id berdasarkan $id kemudian first()
         $task = DB::table('task')->where('id', $id)->first();
         return view('tasks.edit', ['task' => $task]);
@@ -38,5 +38,11 @@ class TaskController extends Controller
         //update table "task"
         DB::table('task')->where('id', $id)->update(['task' => $request->task ]);
         return redirect('/tasks');
+    }
+
+    public function destroy($id)
+    {
+      $task = DB::table('task')->where('id', $id)->delete();
+      return back();
     }
 }
