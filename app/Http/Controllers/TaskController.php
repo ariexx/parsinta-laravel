@@ -11,7 +11,7 @@ class TaskController extends Controller
     public function index()
     {
       return view('tasks.index', [
-          'tasks' => Task::all()
+          'tasks' => Task::orderBy('id', 'desc')->get()
       ]);
     }
 
@@ -20,29 +20,30 @@ class TaskController extends Controller
       $validate = $request->validate([
           'task' => 'required|min:5'
       ]);
+      $validate['mark'] = false;
 
       Task::create($validate);
-      return redirect('/tasks');
+      return back();
     }
 
     public function edit($id)
     {
-        //bukan best practices
-        //ambil table task kemudian cari id berdasarkan $id kemudian first()
-        $task = DB::table('task')->where('id', $id)->first();
+        //recomended menggunakan where
+        // $task = Task::where('id', $id)->first();
+        $task = Task::find($id); //untuk mencari id
         return view('tasks.edit', ['task' => $task]);
     }
 
     public function update(Request $request, $id)
     {
         //update table "task"
-        DB::table('task')->where('id', $id)->update(['task' => $request->task ]);
+        Task::where('id', $id)->update(['task' => $request->task ]);
         return redirect('/tasks');
     }
 
     public function destroy($id)
     {
-      $task = DB::table('task')->where('id', $id)->delete();
+      Task::find($id)->delete();
       return back();
     }
 }
