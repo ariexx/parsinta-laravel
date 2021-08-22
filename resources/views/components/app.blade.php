@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{ $title }} | Blog</title>
-    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/app.css">
 </head>
 
 <body>
@@ -14,7 +14,7 @@
     <div class="pt-4">
         {{ $slot }}
     </div>
-    <script src="/assets/css/bootstrap.min.js"></script>
+    <script src="/js/app.js"></script>
 </body>
 
 </html>
