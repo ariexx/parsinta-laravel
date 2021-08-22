@@ -15,6 +15,7 @@
         {{ $slot }}
     </div>
     <script src="/js/app.js"></script>
+    @flasher_render
 </body>
 
 </html>

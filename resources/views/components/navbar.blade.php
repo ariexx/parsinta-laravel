@@ -14,11 +14,9 @@
                 @endforeach
             </ul>
             <ul class="navbar-nav mb-2 mb-lg-0">
-                @foreach ($navbar as $name => $url)
-                    <li class="nav-item">
-                        <a href="{{ $url }}" class="nav-link">{{ $name }}</a>
-                    </li>
-                @endforeach
+                <li class="nav-item">
+                    <a href="{{ route('register') }}" class="nav-link">Register</a>
+                </li>
             </ul>
         </div>
     </div>

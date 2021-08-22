@@ -161,6 +161,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        Flasher\Laravel\FlasherServiceProvider::class, //custom laravel flash data https://php-flasher.github.io/
 
         /*
          * Package Service Providers...
