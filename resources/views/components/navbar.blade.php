@@ -6,7 +6,14 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                @foreach ($navbar as $name => $url)
+                    <li class="nav-item">
+                        <a href="{{ $url }}" class="nav-link">{{ $name }}</a>
+                    </li>
+                @endforeach
+            </ul>
+            <ul class="navbar-nav mb-2 mb-lg-0">
                 @foreach ($navbar as $name => $url)
                     <li class="nav-item">
                         <a href="{{ $url }}" class="nav-link">{{ $name }}</a>
